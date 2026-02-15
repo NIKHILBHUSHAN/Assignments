@@ -173,14 +173,128 @@ print(f"High:{classification.count("High")}")
 print(f"Medium:{classification.count("Medium")}")
 print(f"Low:{classification.count("Low")}")"""
 
-no_of_students=int(input("Enter no of Students:"))
+"""no_of_students=int(input("Enter no of Students:"))
 student_details={}
 for i in range(1,no_of_students+1):
     name=input(f"Enter name of student{i}:")
     marks=int(input(f"Enter marks of student{i}:"))
     student_details[name]=marks
 for name,marks in student_details.items():
-    print(f"Name:{name}\tMarks:{marks}")
+    print(f"Name:{name}\tMarks:{marks}")"""
+
+"""no_of_students = int(input("Enter number of students: "))
+student_details = {}
+
+for i in range(1, no_of_students + 1):
+    name = input(f"Enter name of student {i}: ")
+
+    if name in student_details:
+        print("Name already exists. Skipping entry.")
+        continue
+
+    marks = int(input(f"Enter marks of student {i}: "))
+
+    if 0 <= marks <= 100:
+        student_details[name] = marks
+    else:
+        print("Invalid marks entered. Skipping entry.")
+
+print("\n--- Student Report ---")
+for name, marks in student_details.items():
+    print(f"Name: {name}\tMarks: {marks}")"""
+
+"""
+def Student_Classification(marks):
+    if marks>=75:
+        return "high"
+    elif 40<=marks<=74:
+        return "Medium"
+    else:
+        return "Low"
+no_of_students=int(input("Enter no of Students:"))
+student_details={}
+for i in range(1,no_of_students+1):
+    name=input(f"Enter name od student{i}:")
+    if name in student_details:
+        print("Name already exists Skipping the entry:")
+        continue
+    marks=int(input(f"Enter marks of Student{i}"))
+    
+    if 0<=marks<=100:
+        #student_details[name]=dict(Marks=marks,classification=Student_Classification(marks))
+        student_details[name]={
+            "Marks":marks,
+            "Classification":Student_Classification(marks)
+        }
+    else:
+        print("Inavlid Marks Skipping the entry")
+print("--Students Report---")
+for name,details in student_details.items():
+    print(f"Name:{name}")
+    print(f"Marks:{details["Marks"]}")
+    print(f"Classification:{details["Classification"]}")
+"""
+"""def Student_Classification(marks):
+    if marks>=75:
+        return "high"
+    elif 40<=marks<=74:
+        return "Medium"
+    else:
+        return "Low"
+    
+no_of_students=int(input("Enter no of students:"))
+student_details={}
+for i in range(1,no_of_students+1):
+    reg_no=int(input(f"Enter register number of student{i}:"))
+    
+    if reg_no in student_details:
+        print("Register number alreasdy exist skipping the entry")
+        continue
+
+    name=input(f"Enter name of student{i}:")
+    marks=int(input(f"Enter marks of student{i}:"))
+    if 0<=marks<=100:
+        student_details[reg_no]={
+            "Name":name,
+            "Marks":marks,
+            "Clasification":Student_Classification(marks)
+        }
+    else:
+        print("Invalid MArks skipping the entry")
+
+search=int(input("Enter register number to search student details:"))
+if search in student_details:
+    print(f"Details of {search}:")
+    print(f"Name:{student_details[search]["Name"]}\tMarks:{student_details[reg_no]["Marks"]}\tClassification:{student_details[reg_no]["Clasification"]}")
+else:
+    print("Register number not found")
+
+sum=0
+print("Students with marks greater than 70")
+for reg_no,details in student_details.items():
+    sum+=details["Marks"]
+    if details["Marks"]>70:
+        print(details["Name"])
+avg=sum/len(student_details)
+print(f"Average marks:{avg:.2f}")"""
+
+subjects=("Telugu","Maths","Hindi")
+marks=[]
+for i in range(len(subjects)):
+    mark=int(input(f"Enter marks for {subjects[i]}:"))
+    if 0<=mark<=100:
+        marks.append(mark)
+    else:
+        print("Inavlid Marks skipping the entry:")
+
+
+for i in range(len(subjects)):
+    print(f"{subjects[i]}:{marks[i]}")
+
+
+
+    
+
 
 
 
