@@ -7,5 +7,5 @@ userprofile={
     "is_actice":True
 
 }
-user=json.dumps(userprofile,indent=2)
+user=json.dumps(userprofile,indent=2 )
 print(user)

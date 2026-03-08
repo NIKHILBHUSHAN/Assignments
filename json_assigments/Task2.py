@@ -10,6 +10,6 @@ api_response='''
     }
 }'''
 data=json.loads(api_response)
-print(data["data"]["username"])
+print(data["data"]["username"] )
 print(data["data"]["score"])
 print(f"User{data['data']["username"]} scored {data['data']["score"]} points")
