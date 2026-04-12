@@ -277,7 +277,7 @@ for reg_no,details in student_details.items():
         print(details["Name"])
 avg=sum/len(student_details)
 print(f"Average marks:{avg:.2f}")"""
-
+'''
 subjects=("Telugu","Maths","Hindi")
 marks=[]
 for i in range(len(subjects)):
@@ -291,7 +291,28 @@ for i in range(len(subjects)):
 for i in range(len(subjects)):
     print(f"{subjects[i]}:{marks[i]}")
 
+'''
 
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+
+# create subplot (1 row, 2 columns)
+fig = make_subplots(rows=1, cols=2,
+                    subplot_titles=("Bar Chart", "Line Chart"))
+
+# Graph 1 (Bar)
+fig.add_trace(
+    go.Bar(x=['A','B','C'], y=[10,20,15]),
+    row=1, col=1
+)
+
+# Graph 2 (Line)
+fig.add_trace(
+    go.Scatter(x=[1,2,3], y=[4,5,6], mode='lines'),
+    row=1, col=2
+)
+
+fig.show()
 
     
 
