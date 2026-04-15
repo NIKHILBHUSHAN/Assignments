@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder,MinMaxScaler,StandardScaler
+
 #Task-1
 
 df = pd.DataFrame({
@@ -11,17 +12,17 @@ df = pd.DataFrame({
     'annual_income': [40000, 80000, 60000, 120000, 80000, 95000]
 })
 
-df["age"].fillna(df["age"].mean(),inplace=True)
-df["city"].fillna(df["city"].mode()[0],inplace=True)
+df["age"]=df["age"].fillna(df["age"].median())
+df["city"]=df["city"].fillna(df["city"].mode()[0])
 
-df.drop_duplicates()
+df=df.drop_duplicates()
 
 #Task-2
-df=pd.get_dummies(df,columns="city")
+df=pd.get_dummies(df,columns=["city"])
 Le=LabelEncoder()
-df=Le.fit_transform(df["gender"])
+df["gender"]=Le.fit_transform(df["gender"])
 
-print("Encoded Data:",df)
+print("Encoded Data:\n",df)
 
 #Task-3
 df_minmax=df.copy()
@@ -29,12 +30,12 @@ df_standard=df.copy()
 cols=['age', 'annual_income']
 
 minmax=MinMaxScaler()
-df_minmax[cols]=minmax.fit_transform(df[cols])
+df_minmax[cols]=minmax.fit_transform(df_minmax[cols])
 
 
 print("\nMin-Max Scaled Data:\n", df_minmax)
 
 standard=StandardScaler()
-df_standard[cols]=standard.fit_transform(df[cols])
+df_standard[cols]=standard.fit_transform(df_standard[cols])
 
 print("\nStandard Scaled Data:\n", df_standard)
